@@ -1,7 +1,5 @@
 # Ideas - Suit Media
 
-## Fitur yang Diimplementasikan
-
 ### 1. Header Fixed dengan Efek Scroll
 - Header tetap di posisi atas saat scroll
 - Menghilang saat scroll ke bawah, muncul kembali saat scroll ke atas
@@ -20,21 +18,5 @@
 - **Lazy Loading**: Image loading yang optimal
 - **Responsive Grid**: Layout yang menyesuaikan ukuran layar
 
-### 4. API Integration
-- Menggunakan API: `https://suitmedia-backend.suitdev.com/api/ideas`
-- **Metode**: POST dengan JSON body
-- **Headers**: Content-Type: application/json
-- Parameter yang didukung:
-  - `page[number]`: Halaman yang dikunjungi
-  - `page[size]`: Jumlah item per halaman
-  - `append[]`: ['small_image', 'medium_image']
-  - `sort`: 'published_at' atau '-published_at'
+### Demo : https://project-test-suitmedia-rendy-zulianda.netlify.app/
 
-## Struktur File
-
-```
-├── index.html          # File HTML utama
-├── styles.css          # Styling CSS
-├── script.js           # JavaScript functionality
-└── README.md           # Dokumentasi
-```
