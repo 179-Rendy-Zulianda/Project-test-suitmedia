@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ideas - Suitmedia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-text">Suitmedia</span>
+            </div>
+            <nav class="nav">
+                <a href="#" class="nav-link">Work</a>
+                <a href="#" class="nav-link">About</a>
+                <a href="#" class="nav-link">Services</a>
+                <a href="#" class="nav-link active">Ideas</a>
+                <a href="#" class="nav-link">Careers</a>
+                <a href="#" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="banner">
+        <img 
+            src="image/Banner.jpg" 
+            alt="Ideas Banner" 
+            class="banner-image" 
+            data-cms-image="banner-image">
+        <div class="banner-slant"></div>
+        <div class="banner-background">
+        </div>
+        <div class="banner-content">
+            <h1 class="banner-title">Ideas</h1>
+            <p class="banner-subtitle">Where all our great things begin</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Controls -->
+        <div class="controls">
+            <div class="controls-left">
+                <span class="showing-text" id="showingText">Showing 1 - 10 of 100</span>
+            </div>
+            <div class="controls-right">
+                <label for="perPage">Show per page:</label>
+                <select id="perPage" class="select-control">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                </select>
+                <label for="sortBy">Sort by:</label>
+                <select id="sortBy" class="select-control">
+                    <option value="-published_at">Newest</option>
+                    <option value="published_at">Oldest</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Posts Grid -->
+        <div class="posts-grid" id="postsGrid">
+            <!-- Posts will be loaded here -->
+        </div>
+
+        <!-- Loading Spinner -->
+        <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+            <div class="spinner"></div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination">
+            <!-- Pagination will be generated here -->
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html> 
