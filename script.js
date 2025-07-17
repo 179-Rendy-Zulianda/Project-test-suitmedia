@@ -41,76 +41,31 @@ class APIService {
     }
 
     async fetchPosts(page = 1, perPage = 10, sort = '-published_at') {
-        // Coba beberapa metode berbeda
-        const methods = [
-            // Metode 1: GET dengan query parameters
-            async () => {
-                const params = new URLSearchParams({
-                    'page[number]': page,
-                    'page[size]': perPage,
-                    'append[]': 'small_image',
-                    'append[]': 'medium_image',
-                    'sort': sort
-                });
-                return await fetch(`${this.baseURL}?${params}`, {
-                    method: 'GET',
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-            },
-            // Metode 2: POST dengan JSON
-            async () => {
-                const requestBody = {
-                    'page[number]': page,
-                    'page[size]': perPage,
-                    'append[]': ['small_image', 'medium_image'],
-                    'sort': sort
-                };
-                return await fetch(this.baseURL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify(requestBody)
-                });
-            },
-            // Metode 3: POST dengan form data
-            async () => {
-                const formData = new FormData();
-                formData.append('page[number]', page);
-                formData.append('page[size]', perPage);
-                formData.append('append[]', 'small_image');
-                formData.append('append[]', 'medium_image');
-                formData.append('sort', sort);
-                return await fetch(this.baseURL, {
-                    method: 'POST',
-                    body: formData
-                });
-            }
-        ];
-
-        let lastError = null;
-
-        for (let i = 0; i < methods.length; i++) {
-            try {
-                const response = await methods[i]();
-                
-                if (response.ok) {
-                    return await response.json();
-                } else {
-                    const errorData = await response.json().catch(() => ({}));
-                    lastError = new Error(`Method ${i + 1} failed: ${response.status} - ${errorData.message || 'Unknown error'}`);
-                    console.log(`Method ${i + 1} failed:`, response.status, errorData);
+        try {
+            const params = new URLSearchParams({
+                'page[number]': page,
+                'page[size]': perPage,
+                'append[]': 'small_image',
+                'append[]': 'medium_image',
+                'sort': sort
+            });
+            
+            const response = await fetch(`${this.baseURL}?${params}`, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json'
                 }
-            } catch (error) {
-                lastError = new Error(`Method ${i + 1} error: ${error.message}`);
-                console.log(`Method ${i + 1} error:`, error.message);
+            });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
+            
+            return await response.json();
+        } catch (error) {
+            console.error('Error fetching posts:', error);
+            throw error;
         }
-
-        throw lastError || new Error('All methods failed');
     }
 }
 
