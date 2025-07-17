@@ -38,31 +38,3 @@
 ├── script.js           # JavaScript functionality
 └── README.md           # Dokumentasi
 ```
-
-## Responsive Breakpoints
-
-- **Desktop**: > 768px
-- **Tablet**: 768px - 480px
-- **Mobile**: < 480px
-
-## API Response Format
-
-Aplikasi mengharapkan response API dalam format:
-
-```json
-{
-  "data": [
-    {
-      "id": 1,
-      "title": "Judul Post",
-      "published_at": "2022-09-05T00:00:00.000000Z",
-      "medium_image": "https://example.com/image.jpg",
-      "small_image": "https://example.com/small-image.jpg"
-    }
-  ],
-  "meta": {
-    "total": 100,
-    "last_page": 10,
-    "current_page": 1
-  }
-}
